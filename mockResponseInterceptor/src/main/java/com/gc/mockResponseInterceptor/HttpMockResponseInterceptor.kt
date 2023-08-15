@@ -1,5 +1,6 @@
 package com.gc.mockResponseInterceptor
 
+import android.content.res.AssetManager
 import okhttp3.Interceptor
 import okhttp3.MediaType
 import okhttp3.Protocol
@@ -10,7 +11,8 @@ import retrofit2.Invocation
 import java.io.FileNotFoundException
 
 class HttpMockResponseInterceptor private constructor(
-    private val doMock: () -> Boolean = { true }
+    private val doMock: () -> Boolean = { true },
+    private val assetManager: AssetManager
 ) : Interceptor {
 
     override fun intercept(chain: Interceptor.Chain): Response {
@@ -31,10 +33,10 @@ class HttpMockResponseInterceptor private constructor(
 
     private fun generateMockResponse(request: Request): Response {
         val jsonFileName = request.tag(Invocation::class.java)
-            ?.method()?.getAnnotation(MockSuccessResponse::class.java)?.fileName
+            ?.method()?.getAnnotation(MockSuccessResponse::class.java)?.fileName ?: ""
 
         val jsonString = kotlin.runCatching {
-            Utils.readFileResource(jsonFileName)
+            Utils.readFileResource(jsonFileName, assetManager)
         }.onFailure {
             if (it is FileNotFoundException && BuildConfig.DEBUG) {
                 error("MockingError: File not found ${request.url()}")
@@ -53,7 +55,7 @@ class HttpMockResponseInterceptor private constructor(
 
     }
 
-    class Builder {
+    class Builder(private val assetManager: AssetManager) {
 
         private var doMock: () -> Boolean = { BuildConfig.DEBUG }
 
@@ -61,7 +63,7 @@ class HttpMockResponseInterceptor private constructor(
             this.doMock = doMock
         }
 
-        fun build() = HttpMockResponseInterceptor(doMock)
+        fun build() = HttpMockResponseInterceptor(doMock, assetManager)
 
 
     }

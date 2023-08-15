@@ -7,41 +7,41 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Character(
     @Json(name = "actor")
-    val actor: String,
+    val actor: String?,
     @Json(name = "alive")
-    val alive: Boolean,
+    val alive: Boolean?,
     @Json(name = "alternate_actors")
-    val alternateActors: List<String>,
+    val alternateActors: List<String?>?,
     @Json(name = "alternate_names")
-    val alternateNames: List<String>,
+    val alternateNames: List<String>?,
     @Json(name = "ancestry")
-    val ancestry: String,
+    val ancestry: String?,
     @Json(name = "dateOfBirth")
-    val dateOfBirth: String,
+    val dateOfBirth: String?,
     @Json(name = "eyeColour")
-    val eyeColour: String,
+    val eyeColour: String?,
     @Json(name = "gender")
-    val gender: String,
+    val gender: String?,
     @Json(name = "hairColour")
-    val hairColour: String,
+    val hairColour: String?,
     @Json(name = "hogwartsStaff")
-    val hogwartsStaff: Boolean,
+    val hogwartsStaff: Boolean?,
     @Json(name = "hogwartsStudent")
-    val hogwartsStudent: Boolean,
+    val hogwartsStudent: Boolean?,
     @Json(name = "house")
-    val house: String,
+    val house: String?,
     @Json(name = "image")
-    val image: String,
+    val image: String?,
     @Json(name = "name")
-    val name: String,
+    val name: String?,
     @Json(name = "patronus")
-    val patronus: String,
+    val patronus: String?,
     @Json(name = "species")
-    val species: String,
+    val species: String?,
     @Json(name = "wand")
-    val wand: Wand,
+    val wand: Wand?,
     @Json(name = "wizard")
-    val wizard: Boolean,
+    val wizard: Boolean?,
     @Json(name = "yearOfBirth")
-    val yearOfBirth: String
+    val yearOfBirth: String?
 )

@@ -8,6 +8,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.gc.mockresponseinterceptor.data.api.model.Character
+
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(

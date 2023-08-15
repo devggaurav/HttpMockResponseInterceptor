@@ -44,6 +44,7 @@ fun HomeScreen() {
         }
 
 
+
     }
 
 }
@@ -68,9 +69,9 @@ fun CharacterImageCard(character: Character) {
             )
 
             Surface(
-                color = MaterialTheme.colors.onSurface.copy(alpha = .3f),
+                color = MaterialTheme.colorScheme.onSurface.copy(alpha = .3f),
                 modifier = Modifier.align(Alignment.BottomCenter),
-                contentColor = MaterialTheme.colors.surface
+                contentColor = MaterialTheme.colorScheme.surface
             ) {
                 Column(
                     modifier = Modifier

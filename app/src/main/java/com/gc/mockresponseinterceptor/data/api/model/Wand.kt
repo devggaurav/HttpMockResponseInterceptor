@@ -7,9 +7,9 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Wand(
     @Json(name = "core")
-    val core: String,
+    val core: String?,
     @Json(name = "length")
-    val length: String,
+    val length: String?,
     @Json(name = "wood")
-    val wood: String
+    val wood: String?
 )

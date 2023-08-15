@@ -17,21 +17,21 @@ repositories {
 }
 ```
 
-// or
+// or in settings.gradle
 
-```settings.gradle
+```kotlin
 pluginManagement {
     repositories {
-        
+        ...
         maven { url "https://jitpack.io" }
     }
- }
+}
 dependencyResolutionManagement {
-      
-     repositories {
-       
+
+    repositories {
+        ...
         maven { url "https://jitpack.io" }
-      }
+    }
 }
 ```
 
@@ -52,10 +52,10 @@ HttpMockResponseInterceptor.Builder(context.assets).build()
 // or
 
 HttpMockResponseInterceptor.Builder(context.assets).isMockEnabled {
-    true
+    true // false if you want to get data from server
 }.build()
 
-// or DI
+// or using DI
 
 @Provides
 fun provideMockingInterceptor(
@@ -71,7 +71,8 @@ fun provideMockingInterceptor(
 
 ## Usage
 
-Define your endpoint
+Define your endpoint and just add @MockSuccessResponse annotation for getting data from local json
+filename provided
 
 ```kotlin
 @GET(ApiConstants.END_POINTS)
@@ -80,7 +81,7 @@ suspend fun getCharacter(): List<Character>
 ```
 
 Create Mock Json File in assets
-Create response you are expecting from api to test
+Create response you are expecting from api to test just in characters_response.json
 
 ```json
 {

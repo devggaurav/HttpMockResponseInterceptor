@@ -52,7 +52,7 @@ HttpMockResponseInterceptor.Builder(context.assets).build()
 // or
 
 HttpMockResponseInterceptor.Builder(context.assets).isMockEnabled {
-    true // false if you want to get data from server
+    true // false if you want to get data from server or pass your build variant e.g BuildConfig.DEBUG
 }.build()
 
 // or using DI
@@ -81,10 +81,15 @@ suspend fun getCharacter(): List<Character>
 ```
 
 Create Mock Json File in assets
-Create response you are expecting from api to test just in characters_response.json
+Create response you are expecting from api to test like in characters_response.json
 
 ```json
 {
   "dummyjson": "Dummy value"
 }
 ```
+
+## Updates
+
+Working on handling and passing multiple files to handle success and error response for testcases.
+

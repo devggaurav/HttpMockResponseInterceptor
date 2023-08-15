@@ -34,7 +34,7 @@ object AppModule {
         @ApplicationContext context: Context
     ): HttpMockResponseInterceptor {
         return HttpMockResponseInterceptor.Builder(context.assets).isMockEnabled {
-            false
+            false //enable it to true if you want data from local json file.
         }.build()
     }
 

@@ -34,7 +34,7 @@ object AppModule {
         @ApplicationContext context: Context
     ): HttpMockResponseInterceptor {
         return HttpMockResponseInterceptor.Builder(context.assets).isMockEnabled {
-            true
+            false
         }.build()
     }
 

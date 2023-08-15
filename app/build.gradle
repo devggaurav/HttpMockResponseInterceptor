@@ -96,6 +96,5 @@ dependencies {
     implementation 'com.squareup.moshi:moshi:1.14.0'
     kapt "com.squareup.moshi:moshi-kotlin-codegen:1.14.0"
 
-    implementation(project(":mockResponseInterceptor"))
-   // implementation 'com.github.devggaurav:HttpMockResponseInterceptor:v1.0.0'
+     implementation 'com.github.devggaurav:HttpMockResponseInterceptor:v1.0.2'
 }
